@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-&>file
 
 echo '- Install postgresql 9.5'
 
-sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' -y
+sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
 
 apt-get -y update > /dev/null
-apt-get -y install postgresql postgresql-contrib
+apt-get -y install postgresql postgresql-contrib > /dev/null
 
 # fix access type
 echo "- Fixing postgres pg_hba.conf file"
@@ -28,28 +27,28 @@ sudo su postgres -c "psql -c \"update pg_database set datistemplate=true where d
 
 echo '- Install rbenv'
 
-apt-get -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+apt-get -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev > /dev/null
 
 cd /home/vagrant && git clone git://github.com/sstephenson/rbenv.git .rbenv
 echo 'export PATH="/home/vagrant/.rbenv/bin:$PATH"' >> ~/.bash_profile
 echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build > /dev/null
 echo 'export PATH="/home/vagrant/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
 
 
 
 echo '- Download and install ruby 2.3.0 build'
-rbenv install -v 2.3.0
-rbenv global 2.3.0
+rbenv install -v 2.3.0 > /dev/null
+rbenv global 2.3.0 > /dev/null
 
 
 echo '- Install bundler gem'
-gem install bundler
+gem install bundler > /dev/null
 
 echo '- Install nodejs features'
 
 add-apt-repository ppa:chris-lea/node.js > /dev/null
 apt-get -y update > /dev/null
-apt-get -y install nodejs
+apt-get -y install nodejs > /dev/null
