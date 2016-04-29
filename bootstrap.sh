@@ -8,6 +8,10 @@ wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key a
 apt-get -y update > /dev/null
 apt-get -y install postgresql postgresql-contrib > /dev/null
 
+
+psql --version
+
+
 # fix access type
 echo "- Fixing postgres pg_hba.conf file"
 # replace the ipv4 host line with the above line
