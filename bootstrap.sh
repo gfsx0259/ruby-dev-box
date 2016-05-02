@@ -42,7 +42,7 @@ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-buil
 echo 'export PATH="/home/vagrant/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
 
-
+#sudo chown -R vagrant .rbenv
 
 echo '- Download and install ruby 2.3.0 build'
 rbenv install -v 2.3.0 > /dev/null
