@@ -54,3 +54,5 @@ echo '- Install nodejs features'
 sudo add-apt-repository ppa:chris-lea/node.js > /dev/null
 sudo apt-get -y update > /dev/null
 sudo apt-get -y install nodejs > /dev/null
+
+sudo apt-get install libpq-dev
